@@ -29,8 +29,8 @@ var t = [];
 var w = [];
 const query = Bmob.Query('wsd');
 query.find().then(res =>{
-	console.log(res[0].a1);
-	console.log(res.length);
+	// console.log(res[0].a1);
+	// console.log(res.length);
 	var p1 = document.createElement('p');
 	p1.innerHTML = '一、选择题';
 	form.appendChild(p1);
@@ -39,8 +39,8 @@ query.find().then(res =>{
 		t[i] = new Exam(res[i].id,res[i].question,res[i].a1,res[i].a2,res[i].a3,res[i].a4,res[i].r);
 		// return t[i];
 	}
-	console.log(t[0]);
-	console.log(t[1]);
+	// console.log(t[0]);
+	// console.log(t[1]);
 	for (var i = 0; i < t.length; i++) {
 		var block = document.createElement('div');
 		// block.setAttribute('class','radio')
@@ -55,7 +55,7 @@ query.find().then(res =>{
 		// box.style.display = 'flex';
 		// box.style.justifyContent = 'spaceAround';
 		block.appendChild(box);
-		console.log(i);
+		// console.log(i);
 		for (var k = 0; k < 4; k++) {
 			var m = [t[i].a1,t[i].a2,t[i].a3,t[i].a4]
 			var input = document.createElement('input');
@@ -92,8 +92,8 @@ query.find().then(res =>{
 	// w = 1;
 	const query1 = Bmob.Query('judge');
     query1.find().then(res =>{
-		console.log(res[0].a1);
-		console.log(res.length);
+		// console.log(res[0].a1);
+		// console.log(res.length);
 		var p2 = document.createElement('p');
 		p2.innerHTML = '二、判断题';
 		form.appendChild(p2);
@@ -101,8 +101,8 @@ query.find().then(res =>{
 			w[i] = new Exam1(res[i].id,res[i].question,res[i].a1,res[i].a2,res[i].r);
 		// return t[i];
 		}
-	console.log(w[0]);
-	console.log(w[1]);
+	// console.log(w[0]);
+	// console.log(w[1]);
 	for (var i = 0; i < w.length; i++) {
 		var block = document.createElement('div');
 		// block.setAttribute('class','radio')
@@ -117,13 +117,13 @@ query.find().then(res =>{
 		// box.style.display = 'flex';
 		// box.style.justifyContent = 'spaceAround';
 		block.appendChild(box);
-		console.log(i);
+		// console.log(i);
 		for (var k = 0; k < 2; k++) {
 			var m = [w[i].a1,w[i].a2]
 			var input = document.createElement('input');
 			input.setAttribute('type','radio');
 			var c = i + 21;
-			console.log(c);
+			// console.log(c);
 			input.setAttribute('name',c);
 			input.setAttribute('value',m[k]);
 		    var label = document.createElement('label');
@@ -175,30 +175,33 @@ query.find().then(res =>{
     submit.addEventListener('click',score);
     //
     function score(){
-    	console.log('111');
-    	console.log(t[0].r);
-    	console.log(w[0].r);
+    	// console.log('111');
+    	// console.log(t[0].r);
+    	// console.log(w[0].r);
     	var p = t.length + w.length;
     	for (var i = 0; i < p; i++) {
-    		console.log(222);
+    		// console.log(222);
     		var d = String(i+1);
     		var radio = document.getElementsByName(d)
     		for (var k = 0; k < radio.length; k++) {
     			if (radio[k].checked) {
-    				console.log(radio[k].value);
+    				// console.log(radio[k].value);
     				if (i < 20) {
     					if (radio[k].value == t[i].r) {
     						sum += 2.5;
-    						console.log(sum);
-    						console.log()
+    						// console.log(sum);
+    						// console.log(d);
     					}
     				}
     				else{
     					var j = i - t.length;
+    					// console.log(radio[k].value);
+    					// console.log(w[j].r);
     					if(radio[k].value == w[j].r) {
     						sum += 2.5;
-    						console.log(sum);
-    						console.log()
+    						// console.log('babababa');
+    						// console.log(sum);
+    						// console.log(d);
     					}
     				}
     				
